@@ -21,4 +21,10 @@ Station := Object clone do (
 
 )
 
-Station dock := method(add )
+Station dock := method(bike,
+	bikes append(bike) 
+)
+
+Station release := method(bike,
+	bikes pop(bike)
+)
