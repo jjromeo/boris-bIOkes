@@ -1,33 +1,15 @@
-
-
-// Bike
+# CODE GOES HERE
 
 Bike := Object clone do (
-
 	isBroken := false
-		
+	break_bike := method(self isBroken = true)
+	fix_bike := method(self isBroken = false)
 )
 
-Bike break := method(isBroken = true)
-
-Bike fix := method(isBroken = false)
 
 
-// Station
 
-Station := Object clone do (
 
-	bikes := list()
-
-)
-
-Station dock := method(bike,
-	bikes append(bike) 
-)
-
-Station release := method(bike,
-	bikes pop(bike)
-)
 
 
 # TEST METHOD
@@ -54,7 +36,7 @@ It := Object clone do (
 
 It := Object clone do (
 	bike1 := Bike clone
-	bike1 break
+	bike1 break_bike
 	"a bike can be broken and knows it is broken" println
 	assertEqual(bike1 isBroken, true)
 	"" println
@@ -63,7 +45,7 @@ It := Object clone do (
 It := Object clone do (
 	bike1 := Bike clone
 	bike2 := Bike clone
-	bike1 break
+	bike1 break_bike
 	"a bike can be broken and knows it is broken" println
 	assertEqual(bike1 isBroken, true)
 	assertEqual(bike2 isBroken, false)
@@ -73,8 +55,8 @@ It := Object clone do (
 
 It := Object clone do (
 	bike1 := Bike clone
-	bike1 break
-	bike1 fix
+	bike1 break_bike
+	bike1 fix_bike
 	"a bike can be broken and knows it is broken" println
 	assertEqual(bike1 isBroken, false)
 	"" println
